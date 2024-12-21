@@ -18,6 +18,12 @@ import Drives from './components/Drives';
 import useOnline from './utils/useOnline';
 import Update from './components/Update';
 import Donars from './components/Donars';
+import Test from './components/Test';
+import Store from './utils/Store';
+import Save from './components/Save';
+import { Provider } from 'react-redux';
+import Gencer from './components/GenCer';
+import Ai from './components/Ai';
 
 function App()
 {
@@ -30,7 +36,7 @@ function App()
   let r=useOnline()
   if(r==false)
   {
-    return(<div className='status'>Please Connect to the Stable internet Connection or Check your internet connection</div>)
+    alert("Connect to Good Stable Internet")
   }
   
 
@@ -38,7 +44,7 @@ function App()
   
     <div>
       <BrowserRouter>
-    
+    <Provider store={Store}>
       <Ct.Provider value={obj}>
     { obj.cont.token && <Nav/>}
       <Routes>
@@ -56,9 +62,13 @@ function App()
         <Route path='/drives' element={<Drives/>}/>
         <Route path='/update' element={<Update/>}/>
         <Route path='/users' element={<Donars/>}/>
+        <Route path='/test' element={<Test/>}/>
+        <Route path='/save' element={<Save/>}/>
+        <Route path='/gencertificate' element={<Gencer/>}/>
+        <Route path="/aisearch" element={<Ai/>}/>
       </Routes>
       </Ct.Provider>
-    
+    </Provider>
      
       </BrowserRouter>
      

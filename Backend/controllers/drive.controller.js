@@ -42,4 +42,16 @@ let deleteAlldrives=async(req,res)=>
         
     }
 }
-module.exports={getDrives,adddrive,deleteAlldrives}
+let deldrive=async(req,res)=>
+{
+    try
+    {
+        await drivemodel.findByIdAndDelete({"_id":req.params._id});
+        res.json({"msg":"drive deleted"})
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+}
+module.exports={getDrives,adddrive,deleteAlldrives,deldrive}

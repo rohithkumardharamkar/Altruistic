@@ -1,24 +1,30 @@
 import axios from "axios"
 import { useContext, useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Ct from "./Ct"
 import Lcard from "./Lcard"
+import { url } from "../urls"
 
 function Drives() {
     let [d, setDrives] = useState([])
+    let n=useNavigate()
     let obj=useContext(Ct)
     useEffect(() => {
-        axios.get("http://localhost:5000/drives/getdrive").then((res) => {
+        if(obj.cont.token==undefined)
+        {
+            n("/")
+        }
+
+        axios.get(`${url}/drives/getdrive`).then((res) => {
             setDrives(res.data)
         })
 
     }, [])
+    
     function del()
     {
-        console.log("hi");
         setDrives([])
-        axios.delete("http://localhost:5000/drives/clearDrives").then((res) => {
-            console.log("cleared");
+        axios.delete(`${url}/drives/clearDrives`,{headers: {"Authorization": obj.cont.token }}).then((res) => {
             
         })
     }
@@ -31,7 +37,6 @@ function Drives() {
        {
         d.map((el)=><Lcard resData={el}/>)
        }
-
     </div>)
 
 }

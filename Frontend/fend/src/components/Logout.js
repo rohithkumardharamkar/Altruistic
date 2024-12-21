@@ -6,6 +6,10 @@ const Logout = () => {
   let navigate=useNavigate()
   useEffect(()=>
 {
+  if(obj.cont.token==undefined)
+  {
+    navigate("/")
+  }
   obj.updcont({"_id":"","token":"","name":"","role":""})
   navigate("/")
 },[])
@@ -13,5 +17,4 @@ const Logout = () => {
     <div></div>
   )
 }
-
 export default Logout

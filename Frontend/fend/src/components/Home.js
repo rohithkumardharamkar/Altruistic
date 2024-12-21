@@ -1,18 +1,21 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Carosal from "./Corosal"
 import Footer from "./Footer"
 import Accrdian from "./Accordian"
 import Person from "./Person"
+import Exam from "./Exam"
+import { useContext, useEffect } from "react"
+import Ct from "./Ct"
 
 function Home()
 {
+    
     return(<div>
         <Carosal/>
         <Accrdian/>
         <Link to='/donations'><button className='donations'>Donate Fund</button></Link>
+        <Link to='/aisearch'><button className="donationss">Ai Support</button></Link>
         <Footer/>
-       
-
     </div>)
 
 }

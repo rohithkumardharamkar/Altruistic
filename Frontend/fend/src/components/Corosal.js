@@ -1,5 +1,7 @@
 import { imgs } from "../utils/img"
-import { useEffect ,useState} from "react"
+import { useContext, useEffect ,useState} from "react"
+import Ct from "./Ct";
+import { useNavigate } from "react-router";
 
 function Carosal() {
     let [i,setI]=useState(0);
@@ -7,13 +9,20 @@ function Carosal() {
     {
         setI((i)=>(i+1)%imgs.length)
     }
+    let obj=useContext(Ct);
+    let n=useNavigate()
     useEffect(()=>
     {
+        if(obj.cont.token==undefined)
+        {
+            n("/")
+        }
         let rid=setInterval(fun,3000)
         return ()=>{
             clearInterval(rid)
         }
     },[])
+
     
     function prev()
     {
@@ -32,14 +41,7 @@ function Carosal() {
     function next()
     {
        setI((i+1)%imgs.length);
-     
-   
-       
     }
-  
-    
-    
-
     return (<div>
         <div className="imgs">
             <img src={imgs[i]} alt='name' />

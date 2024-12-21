@@ -1,7 +1,18 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import Ct from "./Ct";
+import { useNavigate } from "react-router";
 
 function Accrdian()
 {
+  let obj=useContext(Ct)
+  let nav=useNavigate()
+  useEffect(()=>
+  {
+    if(obj.cont.token==undefined)
+    {
+      nav("/")
+    }
+  },[])
     let data = [
         {
           "heading": "Why is blood donation important for saving lives?",
