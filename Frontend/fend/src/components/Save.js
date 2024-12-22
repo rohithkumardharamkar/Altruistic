@@ -7,6 +7,7 @@ import Certificate from "./Certificate";
 import Gencer from "./GenCer";
 import { useNavigate } from "react-router";
 import Ct from "./Ct";
+import { url } from "../urls";
 
 function Save() {
     let u = useSelector((store) => store.save.items);
