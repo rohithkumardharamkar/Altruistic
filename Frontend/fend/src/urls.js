@@ -1,1 +1,1 @@
-export let url="https://altruistic.onrender.com/";
+export let url="https://altruistic.onrender.com";
