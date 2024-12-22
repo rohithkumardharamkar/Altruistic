@@ -1,4 +1,4 @@
-let bcrypt = require("bcrypt");
+let bcrypt = require("bcryptjs");
 let userModel = require('../models/user.model')
 let jwt = require("jsonwebtoken")
 let { GoogleGenerativeAI } =require("@google/generative-ai");
