@@ -15,7 +15,7 @@ mongoose.connect(process.env.mongo_url).then((res) => {
 }).catch((err) => {
     console.log(err);
 })
-let port=process.env.mongo_url || 5000
+let port=process.env.port || 5000
 app.use(cors())
 app.use("/", userRoute);
 app.use("/blogs", blogRoute);
