@@ -3,7 +3,7 @@ const { reg, login, getBlood, getCity, getAll, delMyAct, upload, contact, abc, a
 let userRoute=new express.Router();
 userRoute.post("/reg",upload.single("photo"),reg);
 userRoute.post("/login",login);
-userRoute.get("/otplogin",otplogin)
+userRoute.post("/otplogin",otplogin)
 userRoute.get("/group/:group",getBlood);
 userRoute.get("/city/:add",getCity);
 userRoute.get("/all",getAll);

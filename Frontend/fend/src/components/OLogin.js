@@ -48,12 +48,14 @@ function OLogin() {
         if(data.pwd=="" || otp=="")
         {
             setErr({"msg":"All fields are required"})
+            console.log();
+            
         return
             
         }
         if(data.pwd==otp)
         {
-            axios.get(`${url}/otplogin`, {"email":data.email}, { headers: { "Authorization": obj.cont.token } }).then((res) => {
+            axios.post(`${url}/otplogin`, {"email":data._id}, { headers: { "Authorization": obj.cont.token } }).then((res) => {
                 obj.updcont(res.data)
                 if (res.data.token) {
                     navigate("/home");
