@@ -23,7 +23,7 @@ function OLogin() {
         let p=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if(p.test(data._id))
         {
-            axios.post("http://localhost:5000/otp",{"email":data._id}).then((res)=>{
+            axios.post(`${url}/otp`,{"email":data._id}).then((res)=>{
                 setOtp(res.data)
                 }).catch((err)=>
                 {

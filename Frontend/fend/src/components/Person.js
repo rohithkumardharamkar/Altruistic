@@ -33,7 +33,7 @@ function Person(props)
     }
 
     return(<div className='card'>
-        <div><img src={`http://localhost:5000/images/${data.photo}`} alt=''/></div>
+        <div><img src={`${url}/images/${data.photo}`} alt=''/></div>
         <div className='cardcon'>
             <div>Name : {data.name}</div>
             <div>DATE OF BIRTH : {data.dob}</div>

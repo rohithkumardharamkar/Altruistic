@@ -37,7 +37,7 @@ function Save() {
                 return (
                     <div className="card" key={el.id}>
                         <div>
-                            <img src={`http://localhost:5000/images/${el.photo}`} alt="" />
+                            <img src={`${url}/images/${el.photo}`} alt="" />
                         </div>
                         <div className="cardcon">
                             <div>Name: {el.name}</div>
