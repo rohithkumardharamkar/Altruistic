@@ -21,7 +21,6 @@ function Reg()
  
     function fun1()
     {
-        console.log("ji"); 
         navigate("/profile")
     }
 

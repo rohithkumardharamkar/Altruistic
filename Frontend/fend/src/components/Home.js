@@ -13,7 +13,6 @@ function Home()
     return(<div>
         <Carosal/>
         <Accrdian/>
-        <Link to='/donations'><button className='donations'>Donate Fund</button></Link>
         <Link to='/aisearch'><button className="donationss">Ai Support</button></Link>
         <Footer/>
     </div>)

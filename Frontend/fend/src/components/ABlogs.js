@@ -35,7 +35,6 @@ function ABlog()
     
     function blog()
     {
-        console.log(data);
         
         let q=new FormData();
         for(let el in data)
@@ -43,7 +42,6 @@ function ABlog()
             q.append(el,data[el])
         }
         
-        console.log(q);
         
         axios.post(`${url}/blogs/addblog`,q,{headers: {"Authorization": obj.cont.token }}).then((res)=>
         {
@@ -60,7 +58,6 @@ function ABlog()
             }
         }).catch((err)=>
         {
-            console.log(err);
             setE(err)
             alert("Please Login")
             navigate("/")

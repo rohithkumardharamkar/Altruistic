@@ -24,6 +24,7 @@ import Save from './components/Save';
 import { Provider } from 'react-redux';
 import Gencer from './components/GenCer';
 import Ai from './components/Ai';
+import OLogin from './components/OLogin';
 
 function App()
 {
@@ -66,6 +67,7 @@ function App()
         <Route path='/save' element={<Save/>}/>
         <Route path='/gencertificate' element={<Gencer/>}/>
         <Route path="/aisearch" element={<Ai/>}/>
+        <Route path='/loginotp' element={<OLogin/>}/>
       </Routes>
       </Ct.Provider>
     </Provider>

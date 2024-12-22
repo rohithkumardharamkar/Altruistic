@@ -51,7 +51,6 @@ function Search()
     }
    async function fun3(e)
     {
-        console.log(e.target.value);
        await axios.get(`${url}/city/${e.target.value}`,{headers: {"Authorization": obj.cont.token }}).then((res)=>
             {
                 setRes(res.data)

@@ -18,14 +18,12 @@ function Profile()
     {
         axios.delete(`${url}/delact/${obj.cont._id}`,{headers: {"Authorization": obj.cont.token }}).then((res)=>
         {
-            console.log("deleted");
             obj.updcont({"_id":"","token":"","name":"","role":""})
             navigate("/")
             
         })
     }
     
-    console.log(obj.cont,"llll");
     return(<div className="profile">
         <h1><b>My Profile</b></h1>
         <img src={`${url}/images/${obj.cont.photo}`} alt="" className="nimg"/>

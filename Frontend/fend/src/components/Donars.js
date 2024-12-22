@@ -19,14 +19,13 @@ function Donars() {
             setData(res.data)
         })
     }, [])
-    console.log(data);
     
     let u = useSelector((store) => store.save.items)
     return (<div className="db">
         {
             data.map((el) => {
-                return (<div><Person resData={el} />{console.log(el + "lllll")
-                }</div>)
+                return (<div><Person resData={el} />
+                </div>)
             })
         }
 

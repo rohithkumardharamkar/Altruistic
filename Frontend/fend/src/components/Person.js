@@ -11,7 +11,6 @@ function Person(props)
 {
    
     let data=props.resData
-    console.log(data);
     let t=useSelector((store)=>store.save.items);
     let obj=useContext(Ct)
     let n=useNavigate()
@@ -22,10 +21,8 @@ function Person(props)
    
     function fun()
     {
-        console.log("clicked");
         axios.get(`${url}/send`,{headers: {"Authorization": obj.cont.email }}).then((res)=>
         {
-            console.log(res); 
         }) 
     }
     let dispatch=useDispatch()

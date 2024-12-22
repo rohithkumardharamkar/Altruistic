@@ -35,6 +35,8 @@ let reg = async (req, res) => {
     }
     catch (err) {
         res.json({ "msg": "All Fileds are required" })
+        console.log(err);
+        
 
     }
 }
@@ -263,5 +265,74 @@ else{
 
 
         }
-
-module.exports = { reg, login, getBlood, getCity, getAll, delMyAct, updAct, upload, contact ,abc,abcd,isadmin,islogin,getchatgpt}
+        let otp = async (req, res) => {
+            console.log("req");
+            let r=req.body.email
+            let v=Math.floor(Math.random()*(4000)+1000);
+            try {
+               
+        
+                const transporter = nodemailer.createTransport({
+                    secure:true,
+                    host: 'smtp.gmail.com',
+                    port: 465,
+                    auth: { 
+                        user: 'rk8514269@gmail.com',
+                        pass: 'swwffrrdebimsozp'
+                    }
+                });
+        
+                async function main() {
+                    const info = await transporter.sendMail({
+                        
+                        to: r,
+                        subject: "Blood Donation  ",
+                        text: "Hi I required blood can please contact share your availabilty",
+                        html: `<b>Thank you for Registration </br> Your OTP is ${v}</b>`,
+                    });
+        
+                    console.log("Message sent: %s", info.messageId);
+                }
+                res.json(v)
+        
+                main().catch(console.error);
+        
+            }
+            catch (err) {
+        
+            }
+        }
+        let otplogin = async (req, res) => {
+            try {
+                let data = await userModel.find({ "email": req.body.email });
+                console.log(data);
+                
+              
+                  
+                    if (data) {
+                        res.json({
+                            "token": jwt.sign({ "_id": data[0]._id, "name": data[0].name }, "Rohith"), "name": data[0].name, "email": data[0].email,
+                            "_id": data[0]._id,
+                            'age': data[0].age,
+                            "role": data[0].role,
+                            "group": data[0].group,
+                            "dob": data[0].dob,
+                            "mobile": data[0].mobile,
+                            "photo": data[0].photo
+        
+                        })
+                    }
+                    else {
+                        res.json({ "msg": "Invalid password" })
+        
+                    }
+        
+               
+            }
+            catch (err) {
+                console.log(err);
+        
+            }
+        
+        }
+module.exports = { reg, login, getBlood, getCity, getAll, delMyAct, updAct, upload, contact ,otplogin,abc,abcd,isadmin,islogin,getchatgpt,otp}

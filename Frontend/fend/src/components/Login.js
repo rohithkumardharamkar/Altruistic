@@ -18,15 +18,12 @@ function Login() {
     function login() {
 
         axios.post(`${url}/login`, data, { headers: { "Authorization": obj.cont.token } }).then((res) => {
-            console.log(res.data);
             obj.updcont(res.data)
             if (res.data.token) {
                 navigate("/home");
-                console.log("login");
             }
             else {
                 setErr(res.data)
-                console.log(res.data);
 
             }
         })
@@ -41,6 +38,7 @@ function Login() {
             </div>
             <button onClick={login}>Login</button>
             <div>New User?<Link to='/reg'> Register now </Link></div>
+            <div><Link to='/loginotp'>Login with OTP</Link></div>
 
             
             <div>{err.msg}</div>

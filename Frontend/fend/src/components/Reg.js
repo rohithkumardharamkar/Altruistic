@@ -7,17 +7,8 @@ import Ct from './Ct';
 import { url } from '../urls';
 function Reg() {
     let navigate = useNavigate()
-   
-    
-    
-
     let [err, setErr] = useState("")
-    let [data, setData] = useState({ "_id": "",  
-    "name":"",
-    "age":"",
-    "email":"", 
-    "photo": "",
-    })
+    let [data, setData] = useState({ "_id": "",  "name":"","age":"","email":"", "photo": "" })
     let [f, setF] = useState("");
     let [c,setC]=useState(0);
     function fun(e) {
@@ -28,9 +19,9 @@ function Reg() {
     }
 
     function reg() {
-        console.log("clicked");
-        
+        setErr("")
        
+
         try
         {
             let d = new FormData()
@@ -38,10 +29,8 @@ function Reg() {
                 d.append(el, data[el])
             }
             axios.post(`${url}/reg`, d).then((res) => {
-                console.log(res.data);
                 
                 if (res.data.msg == "Accout is created") {
-                    //   setErr(res.data.msg)
                    setTimeout(() => {
                     navigate("/")
                     
@@ -72,8 +61,6 @@ function Reg() {
        
     }
     return (<div className="reg">
-
-
         <div className="regcon">
             <div><h1>Registration</h1></div>
             <input type='text' placeholder='Enter uid Number' name="_id" value={data._id} onChange={fun} />

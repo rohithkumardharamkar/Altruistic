@@ -34,7 +34,6 @@ function Bcard(props)
         // console.log(c);
         
     }
-    console.log("Bcard");
     
     return(<div>
         {c==0 ?
@@ -55,7 +54,6 @@ function Bcard(props)
 }
 export let Ccard=(Bcard)=>
 {
-    console.log("CC CARD");
     
     return (props)=>
     {

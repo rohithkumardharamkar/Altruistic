@@ -35,7 +35,6 @@ function Blogs() {
         return (<div>Loading.......</div>)
     }
     { data.length == 0 && <div>No Blogs Add Blogs and share your Thoughts</div> }
-    console.log(data);
     
     return (<div>
         {

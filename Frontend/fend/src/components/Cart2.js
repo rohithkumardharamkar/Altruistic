@@ -23,7 +23,6 @@ function Chart2()
 
     },[])
    
-    console.log(data);  
                                
     return(<div> 
         

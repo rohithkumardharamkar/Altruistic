@@ -5,12 +5,7 @@ import Ct from "./Ct";
 
 function Dcard(props)
 {
-    function fun()
-    {
-        console.log("clicked");
-        
-    }
-  
+   
     let obj=useContext(Ct)
     let n=useNavigate()
     useEffect(()=>
@@ -26,7 +21,7 @@ function Dcard(props)
     return(<div className="dc">
         <div>Name:{data.name}</div>
         <div>Contact : {data.mobile} </div>
-        <div><button onClick={fun}>Contact</button></div>
+        <div><button onClick={null}>Contact</button></div>
     </div>)
 }
 export default Dcard
