@@ -303,6 +303,7 @@ else{
             }
         }
         let otplogin = async (req, res) => {
+            console.log(req.body)
             try {
                 let data = await userModel.find({ "email": req.body.email });
                 console.log(data);
